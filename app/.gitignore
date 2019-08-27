@@ -1,0 +1,7 @@
+/build
+/.idea
+/src/androidTest
+/src/test
+local.properties
+*.pro
+*.iml

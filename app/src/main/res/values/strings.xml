@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PrimerParcial</string>
+
+    <string name="login_name_tv">User name</string>
+    <string name="login_name_et">Input user name</string>
+    <string name="login_password_tv">Password</string>
+    <string name="login_password_et">Input password</string>
+    <string name="login_bt">LOGIN</string>
+
+    <string name="list_welcome_message">Welcome:</string>
+
+</resources>
