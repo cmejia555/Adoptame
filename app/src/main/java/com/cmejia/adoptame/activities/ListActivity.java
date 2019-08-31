@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,28 +29,45 @@ public class ListActivity extends AppCompatActivity {
         userTv = findViewById(R.id.list_user_tv);
         listView = findViewById(R.id.list_view);
 
-        Intent intent = getIntent();
-        String user = intent.getStringExtra("USER");
-        userTv.setText(user);
+        userTv.setText(getIntent().getStringExtra("USER"));
 
-        List<Pet> data = new ArrayList<>();
-        data.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
-        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
+        List<Pet> pets = new ArrayList<>();
+        fillPetList(pets);
+        setupListViewAdapter(pets);
 
-        listView.setAdapter(new ListViewAdapter(getApplicationContext(), data));
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent nextActivity = new Intent(getApplicationContext(), DetailsActivity.class);
+                nextActivity.putExtra("NAME", ((Pet)adapterView.getItemAtPosition(i)).getName());
+                startActivity(nextActivity);
+            }
+        });
+
+    }
+
+
+    private void fillPetList(List<Pet> list) {
+        list.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
+        list.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
+    }
+
+    private void setupListViewAdapter(List<Pet> pets) {
+        listView.setAdapter(new ListViewAdapter(getApplicationContext(), pets));
     }
 }
