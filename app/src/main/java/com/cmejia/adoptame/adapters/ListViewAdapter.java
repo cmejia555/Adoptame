@@ -5,13 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.cmejia.adoptame.R;
 import com.cmejia.adoptame.clases.Pet;
+import com.cmejia.adoptame.holders.ViewHolder;
 
 import java.util.List;
 
@@ -26,14 +26,26 @@ public class ListViewAdapter extends ArrayAdapter<Pet> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.list_view_item, null);
+        View item = convertView;
+        ViewHolder holder;
 
-        TextView name = item.findViewById(R.id.pet_name_tv);
-        name.setText(list.get(position).getName());
+        if(item == null) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            item = inflater.inflate(R.layout.list_view_item, null);
 
-        TextView age = item.findViewById(R.id.pet_age_tv);
-        age.setText(String.format("Edad: %s", list.get(position).getAge()));
+            holder = new ViewHolder();
+            holder.name = item.findViewById(R.id.pet_name_tv);
+            holder.age = item.findViewById(R.id.pet_age_tv);
+            holder.image = item.findViewById(R.id.pet_iv);
+
+            item.setTag(holder);
+        } else {
+            holder = (ViewHolder) item.getTag();
+        }
+
+        holder.name.setText(list.get(position).getName());
+        holder.age.setText(String.format("Edad: %s", list.get(position).getAge()));
+        holder.image.setImageDrawable(list.get(position).getImage());
 
         return item;
     }

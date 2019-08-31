@@ -32,22 +32,22 @@ public class ListActivity extends AppCompatActivity {
         userTv.setText(user);
 
         List<Pet> data = new ArrayList<>();
-        data.add(new Pet("toby", "4", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("pelu", "5", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("olivia", "8", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("toby", "4", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("pelu", "5", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("olivia", "8", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("toby", "4", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("pelu", "5", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("olivia", "8", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("toby", "4", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("pelu", "5", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("olivia", "8", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.drawable.ic_launcher_background)));
+        data.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("pelu", "5", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("olivia", "8", getResources().getDrawable(R.mipmap.ic_launcher)));
+        data.add(new Pet("locky", "0,3", getResources().getDrawable(R.mipmap.ic_launcher)));
 
         listView.setAdapter(new ListViewAdapter(getApplicationContext(), data));
     }
