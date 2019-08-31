@@ -1,13 +1,16 @@
 package com.cmejia.adoptame.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.cmejia.adoptame.R;
 import com.cmejia.adoptame.adapters.ListViewAdapter;
@@ -18,23 +21,22 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
-    private TextView userTv;
     private ListView listView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        userTv = findViewById(R.id.list_user_tv);
         listView = findViewById(R.id.list_view);
+        toolbar = findViewById(R.id.toolbar);
 
-        userTv.setText(getIntent().getStringExtra("USER"));
+        setSupportActionBar(toolbar);
 
         List<Pet> pets = new ArrayList<>();
         fillPetList(pets);
         setupListViewAdapter(pets);
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -69,5 +71,27 @@ public class ListActivity extends AppCompatActivity {
 
     private void setupListViewAdapter(List<Pet> pets) {
         listView.setAdapter(new ListViewAdapter(getApplicationContext(), pets));
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // implmentar setting
+                break;
+            case R.id.action_search:
+                // implementar una busqueda
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

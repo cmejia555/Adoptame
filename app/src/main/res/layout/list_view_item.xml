@@ -5,7 +5,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/pet_name_tv"
         android:layout_width="wrap_content"
@@ -24,8 +23,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="5dp"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/pet_iv"
-        app:layout_constraintBottom_toBottomOf="@id/pet_iv" />
+        app:layout_constraintBottom_toBottomOf="@id/pet_iv"
+        app:layout_constraintStart_toEndOf="@+id/pet_iv" />
 
     <ImageView
         android:id="@+id/pet_iv"
@@ -34,9 +33,9 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideline" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

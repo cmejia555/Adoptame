@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PrimerParcial</string>
+    <string name="app_name">Adoptame</string>
 
     <string name="login_name_tv">User name</string>
     <string name="login_name_et">Input user name</string>
