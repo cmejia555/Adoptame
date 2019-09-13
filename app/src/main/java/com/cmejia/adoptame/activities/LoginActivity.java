@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.cmejia.adoptame.R;
-import com.cmejia.adoptame.activities.ListActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ListViewActivity.class);
                 intent.putExtra("USER", user.getText().toString());
                 startActivity(intent);
             }

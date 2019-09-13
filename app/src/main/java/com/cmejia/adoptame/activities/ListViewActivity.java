@@ -19,7 +19,7 @@ import com.cmejia.adoptame.clases.Pet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+public class ListViewActivity extends AppCompatActivity {
 
     private ListView listView;
     private Toolbar toolbar;
@@ -41,7 +41,7 @@ public class ListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent nextActivity = new Intent(getApplicationContext(), DetailsActivity.class);
+                Intent nextActivity = new Intent(getApplicationContext(), TabsActivity.class);
                 nextActivity.putExtra("NAME", ((Pet)adapterView.getItemAtPosition(i)).getName());
                 startActivity(nextActivity);
             }
