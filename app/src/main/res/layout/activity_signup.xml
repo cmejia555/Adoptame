@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity">
+    tools:context="com.cmejia.adoptame.activities.SignupActivity">
+
 
     <TextView
-        android:id="@+id/login_username_tv"
+        android:id="@+id/signup_username_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -18,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/login_username_et"
+        android:id="@+id/signup_username_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -30,10 +31,10 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_username_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_username_tv" />
 
     <TextView
-        android:id="@+id/login_password_tv"
+        android:id="@+id/signup_password_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -41,10 +42,10 @@
         android:textSize="@dimen/login_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_username_et" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_username_et" />
 
     <EditText
-        android:id="@+id/login_password_et"
+        android:id="@+id/signup_password_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -56,28 +57,20 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_password_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_password_tv" />
+
 
     <Button
-        android:id="@+id/login_bt"
+        android:id="@+id/signup_bt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="30dp"
-        android:text="@string/login_bt"
+        android:text="@string/signup_bt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_password_et" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_password_et" />
 
-    <TextView
-        android:id="@+id/login_signup_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/signup_tv"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_bt" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

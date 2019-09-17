@@ -1,15 +1,19 @@
 <resources>
     <string name="app_name">Adoptame</string>
 
-    <string name="login_name_tv">User name</string>
-    <string name="login_name_et">Input user name</string>
+    <string name="login_name_tv">Usuario</string>
+    <string name="login_name_et">Ingresar usuario</string>
     <string name="login_password_tv">Password</string>
-    <string name="login_password_et">Input password</string>
+    <string name="login_password_et">Ingresar password</string>
     <string name="login_bt">LOGIN</string>
 
-    <string name="list_welcome_message">Welcome:</string>
+    <string name="signup_bt">REGISTRAR</string>
+
+    <string name="list_welcome_message">Bienvenido:</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="signup_tv">Registrarse</string>
 
 </resources>
