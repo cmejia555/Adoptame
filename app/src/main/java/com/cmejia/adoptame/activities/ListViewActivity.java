@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +18,7 @@ import android.widget.ListView;
 import com.cmejia.adoptame.R;
 import com.cmejia.adoptame.adapters.ListViewAdapter;
 import com.cmejia.adoptame.clases.Pet;
+import com.cmejia.adoptame.clases.PetSQLite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +39,26 @@ public class ListViewActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         List<Pet> pets = new ArrayList<>();
-        fillPetList(pets);
+        //fillPetList(pets);
+
+        final PetSQLite petdb = new PetSQLite(getApplicationContext(), "DBPet.db", null, 1);
+        SQLiteDatabase db = petdb.getWritableDatabase();
+        Cursor c = db.query("PetDataTable", null, null,
+                null,null, null, null);
+        if ( c.moveToFirst() ) {
+            do {
+                String name= c.getString(0);
+                String age = c.getString(1);
+                String image = c.getString(2);
+                //String file = getApplicationContext().getFilesDir().getPath();
+                int id = getResources().getIdentifier(image, "drawable", getPackageName());
+                pets.add(new Pet(name, age, getResources().getDrawable(id)));
+            } while(c.moveToNext());
+            c.close();
+        }
+
         setupListViewAdapter(pets);
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
