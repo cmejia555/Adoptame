@@ -49,4 +49,9 @@ public class ListViewAdapter extends ArrayAdapter<Pet> {
 
         return item;
     }
+
+    @Override
+    public void add(@Nullable Pet object) {
+        super.add(object);
+    }
 }

@@ -13,20 +13,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.cmejia.adoptame.R;
 import com.cmejia.adoptame.adapters.ListViewAdapter;
 import com.cmejia.adoptame.clases.Pet;
 import com.cmejia.adoptame.clases.PetSQLite;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListViewActivity extends AppCompatActivity {
 
+    private ListViewAdapter adapter;
+
     private ListView listView;
     private Toolbar toolbar;
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,7 @@ public class ListViewActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.list_view);
         toolbar = findViewById(R.id.toolbar);
+        floatingActionButton = findViewById(R.id.floatingButton);
 
         setSupportActionBar(toolbar);
 
@@ -69,8 +75,26 @@ public class ListViewActivity extends AppCompatActivity {
             }
         });
 
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        adapter.notifyDataSetChanged();
+    }
 
     private void fillPetList(List<Pet> list) {
         list.add(new Pet("toby", "4", getResources().getDrawable(R.mipmap.ic_launcher)));
@@ -92,7 +116,8 @@ public class ListViewActivity extends AppCompatActivity {
     }
 
     private void setupListViewAdapter(List<Pet> pets) {
-        listView.setAdapter(new ListViewAdapter(getApplicationContext(), pets));
+        this.adapter = new ListViewAdapter(getApplicationContext(), pets);
+        listView.setAdapter(adapter);
     }
 
 
