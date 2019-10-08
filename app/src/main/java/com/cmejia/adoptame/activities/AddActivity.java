@@ -45,7 +45,7 @@ public class AddActivity extends AppCompatActivity {
                     register.put("image", "libros");
                     db.insert("PetDataTable", null, register);
                     db.close();
-                    int id = getResources().getIdentifier("dog", "drawable", getPackageName());
+                    int id = getResources().getIdentifier("libros", "drawable", getPackageName());
                     ListViewAdapter.addItem(new Pet(namePet, agePet, getResources().getDrawable(id)));
                     finish();
                 }
