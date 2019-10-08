@@ -50,12 +50,8 @@ public class ListViewAdapter extends ArrayAdapter<Pet> {
         return item;
     }
 
-    @Override
-    public void add(@Nullable Pet object) {
-        super.add(object);
-    }
-
-    public static void adding(Pet obj) {
+    public static void addItem(Pet obj) {
         list.add(obj);
     }
+
 }
