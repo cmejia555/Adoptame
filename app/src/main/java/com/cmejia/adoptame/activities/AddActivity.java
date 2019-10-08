@@ -42,7 +42,7 @@ public class AddActivity extends AppCompatActivity {
                     ContentValues register = new ContentValues();
                     register.put("name", namePet);
                     register.put("year", agePet);
-                    register.put("image", "dog");
+                    register.put("image", "libros");
                     db.insert("PetDataTable", null, register);
                     db.close();
                     int id = getResources().getIdentifier("dog", "drawable", getPackageName());

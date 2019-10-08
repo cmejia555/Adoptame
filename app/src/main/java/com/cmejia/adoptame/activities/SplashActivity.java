@@ -29,62 +29,42 @@ public class SplashActivity extends AppCompatActivity {
             ContentValues register = new ContentValues();
             register.put("name", "Toby");
             register.put("year", "4");
-            register.put("image", "dog");
+            register.put("image", "libros");
             db.insert("PetDataTable", null, register);
 
             register.put("name", "Olivia");
             register.put("year", "7");
-            register.put("image", "dog");
+            register.put("image", "libros");
             db.insert("PetDataTable", null, register);
 
             register.put("name", "Pelu");
             register.put("year", "5");
-            register.put("image", "dog");
+            register.put("image", "libros");
             db.insert("PetDataTable", null, register);
 
             register.put("name", "Toby");
             register.put("year", "4");
-            register.put("image", "dog");
+            register.put("image", "libros");
             db.insert("PetDataTable", null, register);
 
             register.put("name", "Olivia");
             register.put("year", "7");
-            register.put("image", "dog");
+            register.put("image", "libros");
             db.insert("PetDataTable", null, register);
 
             register.put("name", "Pelu");
             register.put("year", "5");
-            register.put("image", "dog");
+            register.put("image", "libros");
             db.insert("PetDataTable", null, register);
 
             register.put("name", "Toby");
             register.put("year", "4");
-            register.put("image", "dog");
+            register.put("image", "libros");
             db.insert("PetDataTable", null, register);
 
             register.put("name", "Olivia");
             register.put("year", "7");
-            register.put("image", "dog");
-            db.insert("PetDataTable", null, register);
-
-            register.put("name", "Pelu");
-            register.put("year", "5");
-            register.put("image", "dog");
-            db.insert("PetDataTable", null, register);
-
-            register.put("name", "Toby");
-            register.put("year", "4");
-            register.put("image", "dog");
-            db.insert("PetDataTable", null, register);
-
-            register.put("name", "Olivia");
-            register.put("year", "7");
-            register.put("image", "dog");
-            db.insert("PetDataTable", null, register);
-
-            register.put("name", "Pelu");
-            register.put("year", "5");
-            register.put("image", "dog");
+            register.put("image", "libros");
             db.insert("PetDataTable", null, register);
 
             c.close();
