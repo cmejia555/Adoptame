@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,14 +86,9 @@ public class ListViewActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        adapter.notifyDataSetChanged();
-    }
-
-    @Override
     protected void onRestart() {
         super.onRestart();
+        Log.d("RESTART", "desde restart");
         adapter.notifyDataSetChanged();
     }
 

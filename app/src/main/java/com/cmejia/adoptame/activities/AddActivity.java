@@ -14,6 +14,7 @@ import android.widget.EditText;
 
 import com.cmejia.adoptame.R;
 import com.cmejia.adoptame.adapters.ListViewAdapter;
+import com.cmejia.adoptame.clases.Pet;
 import com.cmejia.adoptame.clases.UserSQLite;
 
 public class AddActivity extends AppCompatActivity {
@@ -47,6 +48,8 @@ public class AddActivity extends AppCompatActivity {
                     register.put("image", "dog");
                     db.insert("PetDataTable", null, register);
                     db.close();
+                    int id = getResources().getIdentifier("dog", "drawable", getPackageName());
+                    ListViewAdapter.adding(new Pet(namePet, agePet, getResources().getDrawable(id)));
                     finish();
                 }
             }
