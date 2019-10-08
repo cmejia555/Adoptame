@@ -16,11 +16,11 @@ import com.cmejia.adoptame.holders.ViewHolder;
 import java.util.List;
 
 public class ListViewAdapter extends ArrayAdapter<Pet> {
-    private List<Pet> list;
+    private static List<Pet> list;
 
     public ListViewAdapter(@NonNull Context context, List<Pet> data) {
         super(context, R.layout.list_view_item, data);
-        this.list = data;
+        list = data;
     }
 
     @NonNull
@@ -49,4 +49,9 @@ public class ListViewAdapter extends ArrayAdapter<Pet> {
 
         return item;
     }
+
+    public static void addItem(Pet obj) {
+        list.add(obj);
+    }
+
 }
