@@ -3,11 +3,14 @@ package com.cmejia.adoptame.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -93,6 +96,23 @@ public class ListViewActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.d("RESTART", "desde restart");
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        ConstraintLayout constraintLayout = findViewById(R.id.activity_list);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String color = preferences.getString("pref_text_color","none");
+        String size = preferences.getString("pref_text_size", "none");
+        String back = preferences.getString("pref_background", "none");
+
+        adapter.setTextColor(Color.parseColor(color));
+        adapter.setTextSize(Integer.valueOf(size));
+        constraintLayout.setBackgroundColor(Color.parseColor(back));
+
         adapter.notifyDataSetChanged();
     }
 

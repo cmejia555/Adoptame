@@ -17,6 +17,8 @@ import java.util.List;
 
 public class ListViewAdapter extends ArrayAdapter<Pet> {
     private static List<Pet> list;
+    private int textSize = 0;
+    private int textColor = 0;
 
     public ListViewAdapter(@NonNull Context context, List<Pet> data) {
         super(context, R.layout.list_view_item, data);
@@ -43,6 +45,14 @@ public class ListViewAdapter extends ArrayAdapter<Pet> {
             holder = (ViewHolder) item.getTag();
         }
 
+        if(textColor != 0) {
+            holder.name.setTextColor(textColor);
+            holder.age.setTextColor(textColor);
+        }
+        if(textSize != 0) {
+            holder.name.setTextColor(textColor);
+            holder.age.setTextColor(textColor);
+        }
         holder.name.setText(list.get(position).getName());
         holder.age.setText(String.format("Edad: %s", list.get(position).getAge()));
         holder.image.setImageDrawable(list.get(position).getImage());
@@ -52,6 +62,14 @@ public class ListViewAdapter extends ArrayAdapter<Pet> {
 
     public static void addItem(Pet obj) {
         list.add(obj);
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
+    }
+
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
     }
 
 }

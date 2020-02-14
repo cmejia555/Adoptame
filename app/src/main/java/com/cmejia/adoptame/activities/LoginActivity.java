@@ -34,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         signupTextView = findViewById(R.id.login_signup_tv);
 
         final SharedPreferences preferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE);
-        username.setText(preferences.getString("username","not user"));
-        password.setText(preferences.getString("password", "not pass"));
+        username.setText(preferences.getString("username",""));
+        password.setText(preferences.getString("password", ""));
 
         UserSQLite userdb = new UserSQLite(getApplicationContext(), "DBUsers.db", null, 1);
         final SQLiteDatabase db = userdb.getWritableDatabase();
